@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<head>
+<script src="/assets/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Borel&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Londrina+Shadow&display=swap" rel="stylesheet">
+'>
+<style>
+body {
+  font-family: 'Cedarville Cursive', cursive;
+
+  margin: 0 auto;
+  max-width: 900px;
+  background: #8d988d;
+}
+input {
+	font-size: 22px;
+}
+
+div {
+  height: 200px;
+  background-size: cover;
+  position: relative;
+  margin: 20px 0 0 0;
+  border-radius: 20px;
+  
+}
+h1 {
+  font-family:'Borel', cursive;
+  text-align: center;
+  font-size: 70px;
+  color: #d0e023;
+  margin: 20px 0 0 0;
+}
+h2 {
+  text-align: center;
+  color: #d0e0e4;
+  margin: 0px 0 70px 0;
+}
+p {
+  color: #fff2cc;
+  background: black;
+  background: linear-gradient(bottom, rgba(236,230,227,1), rgba(236,230,227,.4));
+  background: -webkit-linear-gradient(bottom, rgba(236,230,227,.1), rgba(236,230,227,.4));
+  background: -moz-linear-gradient(bottom, rgba(236,230,227,1), rgba(236,230,227,.4));
+  padding: 1px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+.first{
+  background-image: url("https://static.wixstatic.com/media/ab0eb4_bd6369da97564bf88e9e645c142bf0fb~mv2.jpg/v1/fill/w_980,h_348,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/ab0eb4_bd6369da97564bf88e9e645c142bf0fb~mv2.jpg");
+}
+.second{
+  background-image: url("https://static.wixstatic.com/media/ab0eb4_11454d054d4746c9b63a1953d093c80b~mv2.jpg/v1/fill/w_980,h_544,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ab0eb4_11454d054d4746c9b63a1953d093c80b~mv2.jpg");
+}
+.third{
+  background-image: url("https://static.wixstatic.com/media/ab0eb4_4f1c0a08733d4a068389acdd2c3de2c9~mv2.jpg/v1/fill/w_980,h_348,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/ab0eb4_4f1c0a08733d4a068389acdd2c3de2c9~mv2.jpg");
+}
+.price {
+  float: right;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+<h1>Scott Sava</h1>
+<h2>A visual artist...</h2>
+<div class="first"><input const prices = document.querySelectorAll(".price") 
+class="quantities" type="number" min="0" style="width: 50px">
+  <p>Hair Journal Page 7 Poster <span class="price">$15</span><br />
+  <small>Violet hair,A girl with a thoughtfull mind. A drawing with watercolor. This is scott sava's one of the best drawings that I love. </small></p>
+</div>
+
+<div class="second"><input class="quantities" type="number" min="0" style="width: 50px">
+  <p>Gothic vampire Poster <span class="price">$15</span><br />
+  <small>This was a drawing of a gothic vampire by him with water color.I really love how he made the shadowing here. The complexion of the skin is shown beautifully..</small></p>
+</div>
+  
+<div class="third">
+	<input class="quantities" type="number" min="0" style="width: 50px">
+  <p>Hair Journal Page 15 <span class="price">$15</span><br />
+  <small>Is that madona. If you look at her eyes you will turn into a stone.Maybe that's why she has so much pride .</small></p>
+</div>
+<br><br>
+    <input id="Name" placeholder="Your name">
+  <input id="Email" type="email" placeholder="Your email">
+  <input id="submit"type="submit"><br><br>
+
+
+
+
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+  import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+  
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCqAOXAvHP4zeYDpn8EBp8esYB1tG7RT6Y",
+    authDomain: "rubaiya-02.firebaseapp.com",
+    projectId: "rubaiya-02",
+    storageBucket: "rubaiya-02.appspot.com",
+    messagingSenderId: "465645948988",
+    appId: "1:465645948988:web:ab9d24994815a6f1e5f339"
+  };
+  
+  const Name = document.querySelector("#Name") 
+  const Email = document.querySelector("#Email")
+  document.querySelector('#submit').addEventListener('click', Submit)
+const quantities = document.querySelectorAll(".quantities") 
+const itemsList = ["Hair Journal 1", "Gothic Vampire", "Hair Journal 15"]
+const prices = document.querySelectorAll(".price") 
+  
+  
+  function Submit() {
+    const timestamp = buildTimestamp()
+	  let total = 0
+	  let cart = { }
+	  for  (let i=0; i<quantities.length; i=i+1) {
+	  	if (quantities[i].value != "0" && quantities[i].value != "") {	
+			  let price = prices[i].innerHTML.replace('$', '')
+			  total = total + quantities[i].value * price 
+			
+	  		cart[itemsList[i]] = parseInt(quantities[i].value) 
+	  	}
+	  	quantities[i].value = ""
+	  }
+	  
+  
+    set(ref(db, timestamp), {
+  	  Name: Name.value,
+        email: Email.value,
+		 cart: cart,
+      totalPrice: total,
+		  paid: "not yet",
+
+		 
+    });
+
+    Name.value = ""
+    Email.value = ""
+  }
+
+
+  function buildTimestamp() {
+    const now = new Date();
+    let timestamp = now.getFullYear().toString() + "/";
+    //const month = now.toLocaleString('default', { month: 'long' });
+
+    let month = now.getMonth()+1   //add 1 because Javascript uses 0 for January
+    month = month.toString()
+    month = addLeadingZero(month)
+    timestamp += month + "/"; 
+
+    let date = now.getDate().toString()
+    date = addLeadingZero(date)
+    timestamp += date + "/";
+
+    let hours = now.getHours().toString()
+    hours = addLeadingZero(hours)
+    timestamp += hours + ":";
+
+    let minutes = now.getMinutes().toString()
+    minutes = addLeadingZero(minutes)
+    timestamp += minutes + ":";
+
+    let seconds = now.getSeconds().toString()
+    seconds = addLeadingZero(seconds)
+    timestamp += seconds;
+
+    return timestamp
+  }
+
+  function addLeadingZero(units) {
+  	if (units.length < 2) {
+  		units = "0" + units
+  	}
+  	return units
+  }
+
+
+  
+  
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+</script>
+  
+
+</body>
